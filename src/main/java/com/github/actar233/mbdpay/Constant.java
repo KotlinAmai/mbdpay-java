@@ -4,11 +4,11 @@ public class Constant {
     /**
      * 基础地址
      */
-    public static final String BASE_URL = "https://api.mianbaoduo.com";
+    public static final String BASE_URL = "https://api.niucodata.com";
     /**
      * openid
      */
-    public static final String OPENID = "https://mbd.pub/openid";
+    public static final String OPENID = "https://p.mbd.pub/openid";
 
     /**
      * 微信JSAPI
