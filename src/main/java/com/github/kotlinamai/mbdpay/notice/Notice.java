@@ -8,12 +8,12 @@ import java.util.Objects;
 public class Notice {
 
     /**
-     * type
+     * 通知类型。
      */
     private NoticeType type;
 
     /**
-     * data
+     * 通知数据。
      */
     private NoticeData data;
 

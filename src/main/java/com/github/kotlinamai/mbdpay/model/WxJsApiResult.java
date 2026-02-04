@@ -6,40 +6,45 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
+/**
+ * 微信 JSAPI 下单返回。
+ * <p>
+ * 可通过 {@link #getPayParams()} 获取前端唤起微信支付所需参数。
+ */
 public class WxJsApiResult extends Result {
 
     /**
-     * appId
+     * 公众号/小程序 appId。
      */
     @SerializedName("appId")
     private String appId;
 
     /**
-     * timeStamp
+     * 时间戳。
      */
     @SerializedName("timeStamp")
     private String timeStamp;
 
     /**
-     * nonceStr
+     * 随机字符串。
      */
     @SerializedName("nonceStr")
     private String nonceStr;
 
     /**
-     * package
+     * 订单详情扩展字符串（字段名为 package，Java 中使用 packageName 避免关键字冲突）。
      */
     @SerializedName("package")
     private String packageName;
 
     /**
-     * signType
+     * 签名方式。
      */
     @SerializedName("signType")
     private String signType;
 
     /**
-     * paySign
+     * 支付签名。
      */
     @SerializedName("paySign")
     private String paySign;
@@ -106,6 +111,9 @@ public class WxJsApiResult extends Result {
         this.paySign = paySign;
     }
 
+    /**
+     * 获取用于前端调用微信 JSAPI 的参数集合。
+     */
     public Map<String, String> getPayParams() {
         HashMap<String, String> map = new HashMap<>();
         map.put("appId", this.appId);

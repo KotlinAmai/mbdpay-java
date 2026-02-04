@@ -3,10 +3,13 @@ package com.github.kotlinamai.mbdpay.model;
 import com.google.gson.annotations.SerializedName;
 import java.util.Objects;
 
+/**
+ * 微信 H5 下单返回。
+ */
 public class WxH5Result extends Result {
 
     /**
-     * h5_url
+     * 跳转微信 H5 收银台的 URL。
      */
     @SerializedName("h5_url")
     private String h5Url;

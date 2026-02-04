@@ -3,71 +3,74 @@ package com.github.kotlinamai.mbdpay.model;
 import com.google.gson.annotations.SerializedName;
 import java.util.Objects;
 
+/**
+ * 订单查询接口返回。
+ */
 public class SearchOrderResult extends Result {
 
 
     /**
-     * order_id
+     * 面包多订单 ID。
      */
     @SerializedName("order_id")
     private String orderId;
 
     /**
-     * charge_id
+     * 支付渠道流水号（微信/支付宝侧）。
      */
     @SerializedName("charge_id")
     private String chargeId;
 
     /**
-     * description
+     * 支付描述，一般为商品名称。
      */
     @SerializedName("description")
     private String description;
 
     /**
-     * share_id
+     * 分账 ID（如有）。
      */
     @SerializedName("share_id")
     private String shareId;
 
     /**
-     * share_state
+     * 分账状态（如有）。
      */
     @SerializedName("share_state")
     private String shareState;
 
     /**
-     * amount
+     * 订单金额（单位：分），由接口返回为字符串。
      */
     @SerializedName("amount")
     private String amount;
 
     /**
-     * state
+     * 订单状态。
      */
     @SerializedName("state")
     private String state;
 
     /**
-     * create_time
+     * 创建时间。
      */
     @SerializedName("create_time")
     private String createTime;
 
     /**
-     * payway
+     * 支付渠道（微信=1，支付宝=2）。
      */
     @SerializedName("payway")
     private int payway;
 
     /**
-     * refund_state
+     * 退款状态。
      */
     @SerializedName("refund_state")
     private String refundState;
 
     /**
-     * refund_amount
+     * 退款金额（单位：分），由接口返回为字符串。
      */
     @SerializedName("refund_amount")
     private String refundAmount;

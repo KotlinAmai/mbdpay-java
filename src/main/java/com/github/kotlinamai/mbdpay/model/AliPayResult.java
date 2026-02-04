@@ -3,10 +3,13 @@ package com.github.kotlinamai.mbdpay.model;
 import com.google.gson.annotations.SerializedName;
 import java.util.Objects;
 
+/**
+ * 支付宝下单返回。
+ */
 public class AliPayResult extends Result {
 
     /**
-     * body
+     * 支付宝唤起参数/表单内容。
      */
     @SerializedName("body")
     private String body;

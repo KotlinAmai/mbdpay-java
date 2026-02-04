@@ -16,18 +16,27 @@ import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 面包多支付 Java SDK 客户端。
+ * <p>
+ * 说明：
+ * <ul>
+ *     <li>所有下单/查询/退款接口都通过 {@link #post(String, Object, Class)} 发送 JSON 请求</li>
+ *     <li>请求会自动追加 app_id，并使用 app_key 进行签名（app_key 不会被直接发送）</li>
+ * </ul>
+ */
 public class MbdPayClient {
 
     private final Gson gson;
     private final OkHttpClient okHttpClient;
 
     /**
-     * app_id
+     * 应用 ID（app_id）。
      */
     private final String appId;
 
     /**
-     * app_key
+     * 应用密钥（app_key），用于签名。
      */
     private final String appKey;
 
@@ -38,6 +47,23 @@ public class MbdPayClient {
         this.okHttpClient = new OkHttpClient().newBuilder().build();
     }
 
+    /**
+     * 向指定 URL 发送 POST(JSON) 请求，并将响应反序列化为指定类型。
+     * <p>
+     * 签名规则：
+     * <ol>
+     *     <li>将 request 对象转换为键值对</li>
+     *     <li>追加 app_id</li>
+     *     <li>按 key 字典序拼接为 query string：k1=v1&k2=v2...</li>
+     *     <li>拼接 &amp;key=app_key 后进行 MD5</li>
+     * </ol>
+     * 注意：request 的字段值需可被 {@link com.google.gson.Gson} 安全转为字符串（不能为 null/复杂对象）。
+     *
+     * @param url     接口地址
+     * @param request 请求参数对象
+     * @param clazz   响应类型
+     * @return 解析后的响应对象
+     */
     public <REQ, RSP> RSP post(String url, REQ request, Class<RSP> clazz) throws MbdPayException {
         try {
             Map<String, String> params = params(request);
@@ -86,6 +112,9 @@ public class MbdPayClient {
         return map;
     }
 
+    /**
+     * 根据参数计算签名（MD5）。
+     */
     private String sign(Map<String, String> map) throws MbdPayException {
         QueryStringBuilder builder = QueryStringBuilder.create();
         for (String key : map.keySet()) {
@@ -96,6 +125,9 @@ public class MbdPayClient {
         return md5(signString);
     }
 
+    /**
+     * 计算字符串的 MD5（小写 hex）。
+     */
     public static String md5(String src) throws MbdPayException {
         try {
             MessageDigest digest = MessageDigest.getInstance("MD5");
@@ -111,10 +143,10 @@ public class MbdPayClient {
     }
 
     /**
-     * openid
+     * 生成获取微信用户 openid 的跳转链接。
      *
-     * @param target_url 目标url
-     * @return url
+     * @param target_url 支付完成后回跳的目标 URL
+     * @return 用于跳转获取 openid 的 URL
      */
     public String openid(String target_url) {
         String qs = QueryStringBuilder.create()
@@ -182,8 +214,9 @@ public class MbdPayClient {
     /**
      * 解析通知
      *
-     * @param json json字符串
-     * @return 通知
+     * @param json 回调通知的 JSON 字符串
+     * @return 解析后的通知对象
+     * @throws MbdPayException 当 data 字段类型不正确或 type 不受支持时抛出
      */
     @SuppressWarnings("DuplicatedCode")
     public Notice parseNotice(String json) throws MbdPayException {
@@ -210,6 +243,19 @@ public class MbdPayClient {
                 .build();
     }
 
+    /**
+     * 解析通知（Map 形式）。
+     * <p>
+     * 适用于部分 Web 框架已将 JSON 解析为 Map 的场景，Map 的结构需包含：
+     * <ul>
+     *     <li>type：字符串，对应 {@link NoticeType}</li>
+     *     <li>data：对象，对应不同的通知数据结构</li>
+     * </ul>
+     *
+     * @param map 通知 Map
+     * @return 解析后的通知对象
+     * @throws MbdPayException 当 data 字段类型不正确或 type 不受支持时抛出
+     */
     @SuppressWarnings("DuplicatedCode")
     public Notice parseNotice(Map<String, Object> map) throws MbdPayException {
         Object objType = map.get("type");

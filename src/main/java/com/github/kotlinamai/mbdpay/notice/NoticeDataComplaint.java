@@ -3,10 +3,13 @@ package com.github.kotlinamai.mbdpay.notice;
 import com.google.gson.annotations.SerializedName;
 import java.util.Objects;
 
+/**
+ * Webhook 通知：投诉（complaint）的 data。
+ */
 public class NoticeDataComplaint implements NoticeData {
 
     /**
-     * out_trade_no
+     * 订单号（商户侧）
      * 类型 string
      * 说明 订单号
      */
@@ -14,7 +17,7 @@ public class NoticeDataComplaint implements NoticeData {
     private String outTradeNo;
 
     /**
-     * complaint_detail
+     * 投诉详情
      * 类型 string
      * 说明 投诉详情
      */
@@ -22,7 +25,7 @@ public class NoticeDataComplaint implements NoticeData {
     private String complaintDetail;
 
     /**
-     * amount
+     * 订单金额（单位：分）
      * 类型 int
      * 说明 订单金额，单位为分
      */
@@ -30,7 +33,7 @@ public class NoticeDataComplaint implements NoticeData {
     private int amount;
 
     /**
-     * payer_phone
+     * 投诉者电话
      * 类型 string
      * 说明 投诉者电话
      */

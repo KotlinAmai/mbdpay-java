@@ -2,10 +2,15 @@ package com.github.kotlinamai.mbdpay.model;
 
 import java.util.Objects;
 
+/**
+ * 面包多接口通用返回基类。
+ * <p>
+ * 大部分接口在失败时会返回 error 字段；error 为空表示成功。
+ */
 public abstract class Result {
 
     /**
-     * error
+     * 错误信息；为空表示成功。
      */
     private String error;
 
@@ -16,7 +21,7 @@ public abstract class Result {
         this.error = error;
     }
 
-    public boolean isSuccess(){
+    public boolean isSuccess() {
         return this.error == null || "".equals(error);
     }
 

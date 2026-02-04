@@ -3,16 +3,19 @@ package com.github.kotlinamai.mbdpay.model;
 import com.google.gson.annotations.SerializedName;
 import java.util.Objects;
 
+/**
+ * 退款接口返回。
+ */
 public class RefundResult extends Result {
 
     /**
-     * code
+     * 业务状态码。
      */
     @SerializedName("code")
     private int code;
 
     /**
-     * info
+     * 业务提示信息。
      */
     @SerializedName("info")
     private String info;

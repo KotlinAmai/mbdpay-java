@@ -3,10 +3,13 @@ package com.github.kotlinamai.mbdpay.notice;
 import com.google.gson.annotations.SerializedName;
 import java.util.Objects;
 
+/**
+ * Webhook 通知：支付成功（charge_succeeded）的 data。
+ */
 public class NoticeDataChargeSucceeded implements NoticeData {
 
     /**
-     * description
+     * 商品描述
      * 类型 string
      * 说明 商品描述
      */
@@ -14,7 +17,7 @@ public class NoticeDataChargeSucceeded implements NoticeData {
     private String description;
 
     /**
-     * out_trade_no
+     * 订单号（商户侧）
      * 类型 string
      * 说明 订单号
      */
@@ -22,7 +25,7 @@ public class NoticeDataChargeSucceeded implements NoticeData {
     private String outTradeNo;
 
     /**
-     * amount
+     * 金额（单位：分）
      * 类型 int
      * 说明 金额，单位为分
      */
@@ -30,7 +33,7 @@ public class NoticeDataChargeSucceeded implements NoticeData {
     private int amount;
 
     /**
-     * openid
+     * 支付者 openid（仅微信支付）
      * 类型 string
      * 说明 支付者 openid (仅微信支付)
      */
@@ -38,7 +41,7 @@ public class NoticeDataChargeSucceeded implements NoticeData {
     private String openid;
 
     /**
-     * charge_id
+     * 支付渠道流水号
      * 类型 string
      * 说明 支付渠道流水号
      */
@@ -46,7 +49,7 @@ public class NoticeDataChargeSucceeded implements NoticeData {
     private String chargeId;
 
     /**
-     * payway
+     * 支付渠道
      * 类型 int
      * 说明 支付渠道，微信支付为 1 ，支付宝支付为 2
      */
