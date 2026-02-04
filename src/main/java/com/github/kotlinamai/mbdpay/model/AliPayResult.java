@@ -1,15 +1,8 @@
 package com.github.kotlinamai.mbdpay.model;
 
 import com.google.gson.annotations.SerializedName;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import java.util.Objects;
 
-@EqualsAndHashCode(callSuper = true)
-@Data
-@ToString(callSuper = true)
-@NoArgsConstructor
 public class AliPayResult extends Result {
 
     /**
@@ -17,5 +10,47 @@ public class AliPayResult extends Result {
      */
     @SerializedName("body")
     private String body;
+
+    public AliPayResult() {
+        super();
+    }
+
+    public AliPayResult(String error, String body) {
+        super(error);
+        this.body = body;
+    }
+
+    public String getBody() {
+        return body;
+    }
+
+    public void setBody(String body) {
+        this.body = body;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == this) return true;
+        if (!(o instanceof AliPayResult)) return false;
+        AliPayResult other = (AliPayResult) o;
+        if (!other.canEqual(this)) return false;
+        if (!super.equals(o)) return false;
+        return Objects.equals(this.body, other.body);
+    }
+
+    @Override
+    protected boolean canEqual(Object other) {
+        return other instanceof AliPayResult;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), this.body);
+    }
+
+    @Override
+    public String toString() {
+        return "AliPayResult(super=" + super.toString() + ", body=" + this.body + ")";
+    }
 
 }

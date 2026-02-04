@@ -1,15 +1,8 @@
 package com.github.kotlinamai.mbdpay.model;
 
 import com.google.gson.annotations.SerializedName;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import java.util.Objects;
 
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
 public class SearchOrderParams {
 
     /**
@@ -19,5 +12,60 @@ public class SearchOrderParams {
      */
     @SerializedName("out_trade_no")
     private String outTradeNo;
+
+    public SearchOrderParams() {
+    }
+
+    public SearchOrderParams(String outTradeNo) {
+        this.outTradeNo = outTradeNo;
+    }
+
+    public static Builder builder() {
+        return new Builder();
+    }
+
+    public String getOutTradeNo() {
+        return outTradeNo;
+    }
+
+    public void setOutTradeNo(String outTradeNo) {
+        this.outTradeNo = outTradeNo;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        SearchOrderParams that = (SearchOrderParams) o;
+        return Objects.equals(outTradeNo, that.outTradeNo);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(outTradeNo);
+    }
+
+    @Override
+    public String toString() {
+        return "SearchOrderParams{" +
+                "outTradeNo='" + outTradeNo + '\'' +
+                '}';
+    }
+
+    public static final class Builder {
+        private String outTradeNo;
+
+        private Builder() {
+        }
+
+        public Builder outTradeNo(String outTradeNo) {
+            this.outTradeNo = outTradeNo;
+            return this;
+        }
+
+        public SearchOrderParams build() {
+            return new SearchOrderParams(outTradeNo);
+        }
+    }
 
 }

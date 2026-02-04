@@ -1,11 +1,8 @@
 package com.github.kotlinamai.mbdpay.notice;
 
 import com.google.gson.annotations.SerializedName;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import java.util.Objects;
 
-@Data
-@NoArgsConstructor
 public class NoticeDataChargeSucceeded implements NoticeData {
 
     /**
@@ -56,5 +53,85 @@ public class NoticeDataChargeSucceeded implements NoticeData {
     @SerializedName("payway")
     private int payway;
 
+    public NoticeDataChargeSucceeded() {
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getOutTradeNo() {
+        return outTradeNo;
+    }
+
+    public void setOutTradeNo(String outTradeNo) {
+        this.outTradeNo = outTradeNo;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
+    public String getOpenid() {
+        return openid;
+    }
+
+    public void setOpenid(String openid) {
+        this.openid = openid;
+    }
+
+    public String getChargeId() {
+        return chargeId;
+    }
+
+    public void setChargeId(String chargeId) {
+        this.chargeId = chargeId;
+    }
+
+    public int getPayway() {
+        return payway;
+    }
+
+    public void setPayway(int payway) {
+        this.payway = payway;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        NoticeDataChargeSucceeded that = (NoticeDataChargeSucceeded) o;
+        return amount == that.amount
+                && payway == that.payway
+                && Objects.equals(description, that.description)
+                && Objects.equals(outTradeNo, that.outTradeNo)
+                && Objects.equals(openid, that.openid)
+                && Objects.equals(chargeId, that.chargeId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(description, outTradeNo, amount, openid, chargeId, payway);
+    }
+
+    @Override
+    public String toString() {
+        return "NoticeDataChargeSucceeded{" +
+                "description='" + description + '\'' +
+                ", outTradeNo='" + outTradeNo + '\'' +
+                ", amount=" + amount +
+                ", openid='" + openid + '\'' +
+                ", chargeId='" + chargeId + '\'' +
+                ", payway=" + payway +
+                '}';
+    }
 
 }
