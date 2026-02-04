@@ -1,6 +1,8 @@
 # 面包多支付Java版本SDK
 
-[![](https://www.jitpack.io/v/actar233/mbdpay-java.svg)](https://www.jitpack.io/#actar233/mbdpay-java)
+项目地址：https://github.com/KotlinAmai/mbdpay-java
+
+[![](https://www.jitpack.io/v/KotlinAmai/mbdpay-java.svg)](https://www.jitpack.io/#KotlinAmai/mbdpay-java)
 
 # 如何使用
 
@@ -31,7 +33,7 @@ allprojects {
 maven
 ```xml
 <dependency>
-    <groupId>com.github.actar233</groupId>
+    <groupId>com.github.KotlinAmai</groupId>
     <artifactId>mbdpay-java</artifactId>
     <version>1.0.2</version>
 </dependency>
@@ -40,7 +42,7 @@ maven
 gradle
 ```groovy
 dependencies {
-    implementation 'com.github.actar233:mbdpay-java:1.0.2'
+    implementation 'com.github.KotlinAmai:mbdpay-java:1.0.2'
 }
 ```
 

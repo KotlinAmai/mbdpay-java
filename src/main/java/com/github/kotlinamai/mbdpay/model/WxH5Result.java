@@ -1,4 +1,4 @@
-package com.github.actar233.mbdpay.model;
+package com.github.kotlinamai.mbdpay.model;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;
@@ -10,18 +10,12 @@ import lombok.ToString;
 @Data
 @ToString(callSuper = true)
 @NoArgsConstructor
-public class RefundResult extends Result {
+public class WxH5Result extends Result {
 
     /**
-     * code
+     * h5_url
      */
-    @SerializedName("code")
-    private int code;
-
-    /**
-     * info
-     */
-    @SerializedName("info")
-    private String info;
+    @SerializedName("h5_url")
+    private String h5Url;
 
 }

@@ -1,7 +1,7 @@
-package com.github.actar233.mbdpay;
+package com.github.kotlinamai.mbdpay;
 
-import com.github.actar233.mbdpay.exception.MbdPayException;
-import com.github.actar233.mbdpay.model.*;
+import com.github.kotlinamai.mbdpay.exception.MbdPayException;
+import com.github.kotlinamai.mbdpay.model.*;
 
 public class ClientTest {
 

@@ -1,4 +1,4 @@
-package com.github.actar233.mbdpay.notice;
+package com.github.kotlinamai.mbdpay.notice;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.Data;

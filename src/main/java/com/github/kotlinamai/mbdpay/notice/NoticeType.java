@@ -1,4 +1,4 @@
-package com.github.actar233.mbdpay.notice;
+package com.github.kotlinamai.mbdpay.notice;
 
 public enum NoticeType {
     charge_succeeded, complaint

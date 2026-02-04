@@ -1,4 +1,4 @@
-package com.github.actar233.mbdpay.model;
+package com.github.kotlinamai.mbdpay.model;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.AllArgsConstructor;

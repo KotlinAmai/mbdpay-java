@@ -1,4 +1,4 @@
-package com.github.actar233.mbdpay.exception;
+package com.github.kotlinamai.mbdpay.exception;
 
 public class MbdPayException extends Exception {
 

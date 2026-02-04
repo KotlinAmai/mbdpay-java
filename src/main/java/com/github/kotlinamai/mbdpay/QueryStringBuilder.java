@@ -1,4 +1,4 @@
-package com.github.actar233.mbdpay;
+package com.github.kotlinamai.mbdpay;
 
 import java.util.*;
 

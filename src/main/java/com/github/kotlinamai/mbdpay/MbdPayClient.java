@@ -1,8 +1,8 @@
-package com.github.actar233.mbdpay;
+package com.github.kotlinamai.mbdpay;
 
-import com.github.actar233.mbdpay.exception.MbdPayException;
-import com.github.actar233.mbdpay.model.*;
-import com.github.actar233.mbdpay.notice.*;
+import com.github.kotlinamai.mbdpay.exception.MbdPayException;
+import com.github.kotlinamai.mbdpay.model.*;
+import com.github.kotlinamai.mbdpay.notice.*;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;

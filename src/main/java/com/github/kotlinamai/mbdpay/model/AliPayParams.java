@@ -1,4 +1,4 @@
-package com.github.actar233.mbdpay.model;
+package com.github.kotlinamai.mbdpay.model;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.AllArgsConstructor;
@@ -10,15 +10,15 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class WxH5Params {
+public class AliPayParams {
 
     /**
      * 必选 是
      * 类型 string
-     * 说明 固定为 h5
+     * 说明 支付后跳转的URL地址
      */
-    @SerializedName("channel")
-    private String channel;
+    @SerializedName("url")
+    private String url;
 
     /**
      * 必选 是
@@ -29,6 +29,14 @@ public class WxH5Params {
     private String description;
 
     /**
+     * 必选 是
+     * 类型 number
+     * 说明 金额，单位为分
+     */
+    @SerializedName("amount_total")
+    private int amountTotal;
+
+    /**
      * 必选 否
      * 类型 string
      * 说明 订单号，如不填，面包多将随机生成订单号
@@ -37,11 +45,11 @@ public class WxH5Params {
     private String outTradeNo;
 
     /**
-     * 必选 是
-     * 类型 number
-     * 说明 金额，单位为分
+     * 必选 否
+     * 类型 string
+     * 说明 支付后跳转地址，如不填会只显示「支付成功」
      */
-    @SerializedName("amount_total")
-    private int amountTotal;
+    @SerializedName("callback_url")
+    private String callbackUrl;
 
 }
